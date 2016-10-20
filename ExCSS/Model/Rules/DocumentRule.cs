@@ -79,4 +79,70 @@ namespace ExCSS
                 "}".NewLineIndent(friendlyFormat, indentation);
         }
     }
+
+    public static class Tuple
+    {
+        public static Tuple<T1, T2> Create<T1, T2>(T1 a, T2 b)
+        {
+            return new Tuple<T1, T2>(a,b);
+        }
+    }
+    public class Tuple<T1, T2>
+    {
+        public readonly T1 Item1;
+        public readonly T2 Item2;
+        public Tuple(T1 item1, T2 item2)
+        {
+            Item1 = item1;
+            Item2 = item2;
+        }
+    }
+
+    public static class Ext
+    {
+        public static StringBuilder Clear(this StringBuilder sb)
+        {
+            sb.Length = 0;
+            return sb;
+        }
+
+        public static String Join<T>(String separator, IEnumerable<T> values)
+        {
+            if (values == null)
+                throw new ArgumentNullException("values");
+
+            if (separator == null)
+                separator = String.Empty;
+
+            using (IEnumerator<T> en = values.GetEnumerator())
+            {
+                if (!en.MoveNext())
+                    return String.Empty;
+
+                StringBuilder result = new StringBuilder();
+                if (en.Current != null)
+                {
+                    // handle the case that the enumeration has null entries
+                    // and the case where their ToString() override is broken
+                    string value = en.Current.ToString();
+                    if (value != null)
+                        result.Append(value);
+                }
+
+                while (en.MoveNext())
+                {
+                    result.Append(separator);
+                    if (en.Current != null)
+                    {
+                        // handle the case that the enumeration has null entries
+                        // and the case where their ToString() override is broken
+                        string value = en.Current.ToString();
+                        if (value != null)
+                            result.Append(value);
+                    }
+                }
+                return result.ToString();
+            }
+        }
+    }
 }

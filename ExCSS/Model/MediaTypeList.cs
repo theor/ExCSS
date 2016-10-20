@@ -81,8 +81,8 @@ namespace ExCSS
         public string ToString(bool friendlyFormat, int indentation = 0)
         {
             return friendlyFormat
-                ? string.Join(", ", _media)
-                : string.Join(",", _media);
+                ? Ext.Join(", ", _media)
+                : Ext.Join(",", _media);
         }
 
         public IEnumerator<string> GetEnumerator()

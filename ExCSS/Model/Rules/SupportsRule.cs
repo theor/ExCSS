@@ -32,7 +32,7 @@ namespace ExCSS
             var join = friendlyFormat ? "".NewLineIndent(true, indentation + 1) : "";
 
             var declarationList = RuleSets.Select(d => d.ToString(friendlyFormat, indentation + 1).TrimFirstLine());
-            var declarations = string.Join(join, declarationList);
+            var declarations = Ext.Join(join, declarationList);
 
             return ("@supports" + _condition + "{").NewLineIndent(friendlyFormat, indentation) +
                 declarations.TrimFirstLine().NewLineIndent(friendlyFormat, indentation + 1) +

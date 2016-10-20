@@ -30,7 +30,7 @@ namespace ExCSS
         public override string ToString(bool friendlyFormat, int indentation = 0)
         {
             return string.Empty.Indent(friendlyFormat, indentation) +
-                string.Join(",", _values) + 
+                Ext.Join(",", _values) + 
                 "{" + 
                 Declarations.ToString(friendlyFormat, indentation) +
                 "}".NewLineIndent(friendlyFormat, indentation);

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{26881075-3F64-4825-A6B5-EAA0D5419D20}</ProjectGuid>
+    <ProjectGuid>{D35BB3E0-89D0-4DB8-BFA0-7E2FEC7A29B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ExCSS</RootNamespace>
